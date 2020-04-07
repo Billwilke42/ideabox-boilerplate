@@ -3,6 +3,7 @@
 html, body, h1, h2, h3, h4, h5, h6, p {
   margin: 0;
   padding: 0;
+  font-family: 'Open Sans'
 }
 
 html, body {
@@ -15,11 +16,29 @@ body {
 
 /*=== Background Colors ===*/
 
+hr {
+  border: 1px solid #353567;
+}
+
+.starred-ideas-button {
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 2px;
+  margin: 15px 15px 15px 12px;
+  padding: 5px;
+  background-color: #5356a4;
+  color: #e9e9f3;
+  border: 1px solid #353567;
+  width: 90%;
+  height: 6%;
+  margin-bottom: 25px;
+}
+
 .purple-1 {
   background: #EAEAF4;
 }
 
-.purple-2 {
+.upper-right {
   background: #A9AAD2;
 }
 
@@ -27,12 +46,20 @@ body {
   background: #5356A4;
 }
 
-.purple-4 {
+.side-bar {
   background: #1F1F3D;;
 }
 
 
 /*=== Fonts ===*/
+
+
+.filter-title {
+  font-weight: 600;
+  color: #bfbfdd;
+  margin: 12px;
+  margin-top: 25px;
+}
 
 .header-text {
   color: #EAEAF4;
@@ -50,7 +77,7 @@ body {
 
 .menu {
   height: 100%;
-  width: 380px;
+  width: 280px;
 }
 
 /*=== main section ===*/
