@@ -40,6 +40,10 @@ hr {
 
 .upper-right {
   background: #A9AAD2;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
 }
 
 .purple-3 {
@@ -47,10 +51,56 @@ hr {
 }
 
 .side-bar {
-  background: #1F1F3D;;
+  background: #1F1F3D;
 }
 
+.search-button {
+  width: 10px;
+  height: 10px;
+}
+.title-input {
+  width: 30%;
+  height: 10%;
+  border: 1px solid #1f1f3d;
+  border-radius: 2px;
+}
+.body-input{
+  width: 30%;
+  border: 1px solid #1f1f3d;
+  border-radius: 2px;
+  height: 20%;
+}
+.search-input {
+  width: 30%;
+  height: 10%;
+  border: 1px solid #1f1f3d;
+  border-radius: 2px;
+}
+.save-button{
+  width: 30.5%;
+  height: 10%;
+  color: #e9e9f3;
 
+  background-color: #353567;
+  border: 1px solid #1f1f3d;
+  border-radius: 2px;
+  font-size: 15px;
+}
+.form-title{
+  font-weight: bold;
+  align-self: auto;
+
+}
+.form-body{
+  font-weight: bold;
+}
+.body-container{
+  width:30%;
+
+}
+.title-container{
+  width:30%;
+}
 /*=== Fonts ===*/
 
 
