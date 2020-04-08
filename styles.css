@@ -38,12 +38,22 @@ hr {
   background: #EAEAF4;
 }
 
-.upper-right {
+/* .upper-right {
   background: #A9AAD2;
   display: flex;
   justify-content: space-around;
   flex-direction: column;
   align-items: center;
+} */
+
+.upper-right-form {
+  height: 90%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
 }
 
 .purple-3 {
@@ -188,7 +198,6 @@ hr {
   justify-content: space-between;
   height: 15%;
   background-color: #1F1F3D;
-
 }
 
 .card-footer {
@@ -207,6 +216,8 @@ hr {
 
 .idea-form {
   flex-grow: 2;
+  background: #A9AAD2;
+  height: 370px;
 }
 
 .idea-cards {
@@ -236,5 +247,10 @@ hr {
 
   .idea-form {
     flex-grow: 1;
+  }
+
+  .idea-cards {
+    display: flex;
+    flex-direction: column;
   }
 }
