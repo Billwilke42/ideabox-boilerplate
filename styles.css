@@ -48,12 +48,17 @@ hr {
 
 .upper-right-form {
   height: 90%;
-  width: 100%;
+  width: 30%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   padding: 20px;
+  margin: auto;
+}
+
+.upper-right-form > * {
+  width: 100%;
 }
 
 .purple-3 {
@@ -65,7 +70,7 @@ hr {
 }
 
 .title-input, .body-input, .search-container {
-  width: 30%;
+  /* width: 30%; */
   border: 1px solid #1f1f3d;
   border-radius: 2px;
 }
@@ -99,8 +104,8 @@ hr {
   margin-left: 15%;
 }
 
-.save-button{
-  width: 30.5%;
+.save-button {
+  /* width: 30.5%; */
   height: 10%;
   color: #e9e9f3;
   background-color: #353567;
@@ -119,7 +124,7 @@ hr {
 }
 
 .body-container, .title-container {
-  width:30%;
+  /* width: 30%; */
 }
 
 /*=== Fonts ===*/
@@ -145,6 +150,15 @@ hr {
 
 
 /*=== menu section ===*/
+
+.menu-header {
+  display: flex;
+}
+
+.mobile-menu {
+  display: none;
+  width: 35px;
+}
 
 .menu {
   height: 100%;
@@ -237,6 +251,7 @@ hr {
   .header-text {
     font-size: 18px;
     padding: 10px;
+    margin: auto;
   }
 
   .menu {
@@ -252,5 +267,13 @@ hr {
   .idea-cards {
     display: flex;
     flex-direction: column;
+  }
+
+  .mobile-menu {
+    display: block;
+  }
+
+  .upper-right-form {
+    width: 80%;
   }
 }
