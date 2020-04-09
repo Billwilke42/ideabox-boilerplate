@@ -30,7 +30,6 @@ hr {
   color: #e9e9f3;
   border: 1px solid #353567;
   width: 90%;
-  height: 6%;
   margin-bottom: 25px;
 }
 
@@ -241,11 +240,16 @@ hr {
   grid-gap: 20px;
 }
 
+
 /*=== media queries ===*/
 
 @media only screen and (max-width: 400px) {
   body {
     flex-direction: column;
+  }
+
+  hr {
+    border: none;
   }
 
   .header-text {
@@ -256,8 +260,11 @@ hr {
 
   .menu {
     height: 40px;
-    text-align: center;
     width: 100%;
+  }
+
+  .expanded {
+    height: 90%;
   }
 
   .idea-form {
