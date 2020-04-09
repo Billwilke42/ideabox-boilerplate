@@ -1,6 +1,9 @@
 class Idea {
-  constructor() {
-
+  constructor(ideaObject) {
+    this.title = ideaObject.title;
+    this.body = ideaObject.body;
+    this.id = Date.now();
+    this.isStarred = false;
   }
 
   saveToStorage() {
