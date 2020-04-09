@@ -283,4 +283,12 @@ hr {
   .upper-right-form {
     width: 80%;
   }
+
+.darkness {
+    /* background:rgba(0, 0, 0, 0.5); */
+    /* filter: grayscale(1); */
+    /* filter: opacity(50%); */
+    /* filter: brightness(50%); */
+    filter: invert(44%);
+}
 }
