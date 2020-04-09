@@ -7,7 +7,7 @@ html, body, h1, h2, h3, h4, h5, h6, p {
 }
 
 html, body {
-  height: 100%
+
 }
 
 body {
@@ -160,7 +160,6 @@ hr {
 }
 
 .menu {
-  height: 100%;
   width: 280px;
 }
 
@@ -285,10 +284,9 @@ hr {
   }
 
 .darkness {
-    /* background:rgba(0, 0, 0, 0.5); */
-    /* filter: grayscale(1); */
-    /* filter: opacity(50%); */
-    /* filter: brightness(50%); */
-    filter: invert(44%);
+    filter: invert(34%);
+    backdrop-filter: invert(34%);
 }
+
+
 }
