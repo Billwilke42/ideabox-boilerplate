@@ -285,10 +285,9 @@ hr {
   }
 
 .darkness {
-    /* background:rgba(0, 0, 0, 0.5); */
-    /* filter: grayscale(1); */
-    /* filter: opacity(50%); */
-    /* filter: brightness(50%); */
-    filter: invert(44%);
+    filter: invert(34%);
+    backdrop-filter: invert(34%);
 }
+
+
 }
