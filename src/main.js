@@ -1,8 +1,15 @@
-var mobileMenu = document.querySelector('.mobile-menu');
+var mobileMenuIcon = document.querySelector('.mobile-menu');
 var menuHeader = document.querySelector('.menu-header');
+var menuSideBar = document.querySelector('.side-bar')
 
-mobileMenu.addEventListener('click', openMenuHeader);
+mobileMenuIcon.addEventListener('click', openMenuHeader);
 
 function openMenuHeader () {
-    mobileMenu.src = 'assets/menu-close.svg';
+
+   if (menuSideBar.className === 'menu side-bar') {
+     mobileMenuIcon.src = 'assets/menu-close.svg';
+   } else {
+      mobileMenuIcon.src = 'assets/menu.svg'
+   }
+    menuSideBar.classList.toggle('expanded');
 }
