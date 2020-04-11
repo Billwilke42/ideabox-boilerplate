@@ -240,6 +240,10 @@ hr {
   grid-gap: 20px;
 }
 
+.darkness-disabled {
+    filter: invert(34%);
+    backdrop-filter: invert(34%);
+}
 
 /*=== media queries ===*/
 
