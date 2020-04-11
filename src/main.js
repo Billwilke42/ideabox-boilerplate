@@ -5,11 +5,11 @@ var ideas = document.querySelector('.ideas');
 var saveButton = document.querySelector('.save-button');
 var titleInput = document.querySelector('.title-input');
 var bodyInput = document.querySelector('.body-input');
+var searchInput = document.querySelector('.search-input')
 var cardTitle = document.querySelector('.card-title');
 var cardBody = document.querySelector('.card-body');
 var ideaCardsSection = document.querySelector('.idea-cards');
 var upperRightForm = document.querySelector('.upper-right-form');
-
 var ideasArray = [];
 
 window.onload = checkEmptyInputs();
@@ -30,22 +30,30 @@ function openMenuHeader () {
 }
 
 function displayCards() {
-  ideaCardsSection.insertAdjacentHTML('beforeend', `<section class="single-card">
+  ideaCardsSection.innerHTML = ''
+  for (var i = 0; i < ideasArray.length; i++) {
+    createCard(ideasArray[i]);
+ }
+}
+
+function createCard(idea) {
+  ideaCardsSection.insertAdjacentHTML('beforeend', `<section class="single-card" data-id="${idea.id}">
     <div class="card-header">
       <img src="assets/star-active.svg" class="idea-star" alt="white-star">
       <img src="assets/menu-close.svg" class="idea-close" alt="X button">
     </div>
-    <h4 class="card-title">${titleInput.value}</h4>
-    <p class="card-body">${bodyInput.value}</p>
+    <h4 class="card-title">${idea.title}</h4>
+    <p class="card-body">${idea.body}</p>
     <div class="card-footer">
       <img src="assets/comment.svg" class="idea-comment" alt="plus-symbol">Comment
     </div>
   </section>`);
-
 }
+
 function clearInputs() {
   bodyInput.value = '';
   titleInput.value = '';
+  searchInput.value = '';
 }
 
 function storeIdea(event) {
@@ -56,8 +64,7 @@ function storeIdea(event) {
   checkEmptyInputs();
 }
 
-function checkEmptyInputs(e) {
-  console.log(e);
+function checkEmptyInputs() {
   if(titleInput.value !== '' && bodyInput.value !== '') {
     saveButton.disabled = false;
     saveButton.classList.remove('darkness-disabled');
