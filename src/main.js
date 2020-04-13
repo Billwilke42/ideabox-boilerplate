@@ -38,9 +38,10 @@ function displayCards() {
 }
 
 function createCard(idea) {
+  var starVariable = idea.isStarred ? 'star-active' : 'star';
   ideaCardsSection.insertAdjacentHTML('beforeend', `<section class="single-card" data-id="${idea.id}">
     <div class="card-header">
-      <img src="assets/star-active.svg" class="idea-star" alt="white-star">
+      <img src="assets/${starVariable}.svg" class="idea-star" alt="white-star">
       <img src="assets/menu-close.svg" class="idea-close" alt="X button">
     </div>
     <h4 class="card-title">${idea.title}</h4>
@@ -84,14 +85,21 @@ function removeCard(ideaId) {
     }
   }
   ideasArray = filteredIdeasArray;
-  displayCards();
 }
 
 function targetCard(event) {
   var ideaId = event.target.closest('.single-card').dataset.id
-  console.log(ideaId)
   if (event.target.classList.contains('idea-close')) {
-    console.log(event.target.classList.contains('idea-close'))
     removeCard(ideaId);
+  } else if (event.target.classList.contains('idea-star')){
+    var targetIdea = findIdea(ideaId);
+    targetIdea.toggleStar(targetIdea);
   }
+  displayCards();
+}
+
+function findIdea(ideaId) {
+  return ideasArray.find(function (idea) {
+    return idea.id === parseInt(ideaId);
+  })
 }

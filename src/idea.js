@@ -17,4 +17,7 @@ class Idea {
   updateIdea() {
 
   }
+  toggleStar() {
+    this.isStarred = !this.isStarred;
+  }
 }
