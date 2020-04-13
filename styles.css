@@ -288,10 +288,7 @@ hr {
     width: 80%;
   }
 
-.darkness {
+  .darkness {
     filter: invert(34%);
     backdrop-filter: invert(34%);
-}
-
-
 }
