@@ -133,7 +133,6 @@ function showStarredIdeas() {
   ideaCardsSection.innerHTML = '';
   var starredIdeasArray = [];
   for (var i = 0; i < ideasArray.length; i++) {
-    // ideasArray.filter(idea =>
     if(ideasArray[i].isStarred === true) {
       starredIdeasArray.push(ideasArray[i]);
     }
