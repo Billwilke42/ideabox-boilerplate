@@ -1,11 +1,6 @@
 var bodyInput = document.querySelector('.body-input');
-var cardBody = document.querySelector('.card-body');
-var cardHeader = document.querySelector('.card-header');
-var cardTitle = document.querySelector('.card-title');
 var ideaCardsSection = document.querySelector('.idea-cards');
-var ideas = document.querySelector('.ideas');
 var ideasArray = JSON.parse(localStorage.getItem('ideasArray')) || [];
-var menuHeader = document.querySelector('.menu-header');
 var menuSideBar = document.querySelector('.side-bar')
 var mobileMenuIcon = document.querySelector('.mobile-menu');
 var saveButton = document.querySelector('.save-button');
@@ -72,13 +67,22 @@ function createCard(idea) {
 }
 
 function openMenuHeader () {
-  menuSideBar.classList.toggle('expanded');
+  var ideas = document.querySelector('.ideas');
   ideas.classList.toggle('darkness');
+  menuSideBar.classList.toggle('expanded');
   if (menuSideBar.classList.contains('expanded')) {
     mobileMenuIcon.src = 'assets/menu-close.svg';
+    toggleDisable();
    } else {
     mobileMenuIcon.src = 'assets/menu.svg';
+    toggleDisable();
    }
+}
+
+function toggleDisable() {
+  titleInput.disabled = !titleInput.disabled;
+  bodyInput.disabled = !bodyInput.disabled ;
+  searchInput.disabled = !searchInput.disabled;
 }
 
 function storeIdea(event) {
