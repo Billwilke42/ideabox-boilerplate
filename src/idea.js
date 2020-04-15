@@ -11,15 +11,7 @@ class Idea {
     var stringifiedArray = JSON.stringify(ideaToStore);
     localStorage.setItem('ideasArray', stringifiedArray);
   }
-
-  deleteFromStorage() {
-
-  }
-
-  updateIdea() {
-
-  }
-
+  
   toggleStar() {
     this.isStarred = !this.isStarred;
   }
