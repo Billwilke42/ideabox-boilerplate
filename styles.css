@@ -1,7 +1,7 @@
 html, body, h1, h2, h3, h4, h5, h6, p {
+  font-family: 'Open Sans';
   margin: 0;
   padding: 0;
-  font-family: 'Open Sans';
 }
 
 html, body {
@@ -17,16 +17,17 @@ hr {
 }
 
 .starred-ideas-button {
-  font-weight: bold;
-  font-size: 20px;
-  border-radius: 2px;
-  margin: 15px 15px 15px 12px;
-  padding: 5px;
   background-color: #5356a4;
-  color: #e9e9f3;
   border: 1px solid #353567;
-  width: 90%;
+  border-radius: 2px;
+  color: #e9e9f3;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 15px 15px 15px 12px;
   margin-bottom: 25px;
+  padding: 5px;
+  width: 90%;
 }
 
 .purple-1 {
@@ -34,14 +35,14 @@ hr {
 }
 
 .upper-right-form {
-  height: 90%;
-  width: 30%;
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  height: 90%;
   justify-content: space-between;
-  padding: 20px;
   margin: auto;
+  padding: 20px;
+  width: 30%;
 }
 
 .upper-right-form > * {
@@ -70,38 +71,40 @@ hr {
 }
 
 .search-container {
-  display: flex;
   align-items: center;
-  position: relative;
-  height: 10%;
   background-color: #353567;
+  display: flex;
+  height: 10%;
   overflow: hidden;
+  position: relative;
 }
 
 .search-container img {
+  margin-left: 4%;
   position: absolute;
   width: 20px;
-  margin-left: 4%;
+  cursor: auto;
 }
 
 .search-input {
-  width: 100%;
   height: 100%;
   margin-left: 15%;
+  width: 100%;
 }
 
 .save-button {
-  height: 10%;
-  color: #e9e9f3;
   background-color: #353567;
   border: 1px solid #1f1f3d;
   border-radius: 2px;
+  color: #e9e9f3;
+  cursor: pointer;
   font-size: 15px;
+  height: 10%;
 }
 
 .form-title {
-  font-weight: bold;
   align-self: auto;
+  font-weight: bold;
 }
 
 .form-body {
@@ -109,8 +112,8 @@ hr {
 }
 
 .filter-title {
-  font-weight: 600;
   color: #bfbfdd;
+  font-weight: 600;
   margin: 12px;
   margin-top: 25px;
 }
@@ -136,13 +139,15 @@ hr {
 }
 
 .menu {
-  width: 280px;
-  height: 100%
+  height: 100%;
+  width: 280px
 }
-
+img{
+  cursor: pointer;
+}
 .card-title {
-  margin-left: 5px;
   font-weight: bold;
+  margin-left: 5px;
 }
 
 .card-body {
@@ -150,16 +155,16 @@ hr {
 }
 
 .single-card {
+  background-color: #ffffff;
+  border: 2px solid #1F1F3D;
   display: flex;
   flex-flow: column;
+  font-size: larger;
+  height: 290px;
   justify-content: space-between;
+  margin: 5%;
   overflow: hidden;
   width: 90%;
-  height: 290px;
-  background-color: #ffffff;
-  margin: 5%;
-  border: 2px solid #1F1F3D;
-  font-size: larger;
 }
 
 .idea-star {
@@ -180,18 +185,18 @@ hr {
 }
 
 .card-header {
-  display: flex;
-  justify-content: space-between;
-  height: 15%;
   background-color: #1F1F3D;
+  display: flex;
+  height: 15%;
+  justify-content: space-between;
 }
 
 .card-footer {
-  display: flex;
   align-items: center;
-  height: 15%;
   background-color: #5356A4;
   color: #fff;
+  display: flex;
+  height: 15%;
 }
 
 .ideas {
@@ -201,21 +206,22 @@ hr {
 }
 
 .idea-form {
-  flex-grow: 2;
   background: #A9AAD2;
+  flex-grow: 2;
   height: 370px;
 }
 
 .idea-cards {
-  flex-grow: 3;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
   grid-gap: 20px;
+  display: grid;
+  flex-grow: 3;
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .darkness-disabled {
-    filter: invert(34%);
     backdrop-filter: invert(34%);
+    filter: invert(34%);
+    cursor: not-allowed;
 }
 
 @media only screen and (max-width: 400px) {
@@ -229,8 +235,8 @@ hr {
 
   .header-text {
     font-size: 18px;
-    padding: 10px;
     margin: auto;
+    padding: 10px;
   }
 
   .menu {
@@ -240,6 +246,7 @@ hr {
 
   .expanded {
     height: 90%;
+
   }
 
   .idea-form {
@@ -260,6 +267,7 @@ hr {
   }
 
   .darkness {
-    filter: invert(34%);
     backdrop-filter: invert(34%);
+    filter: invert(34%);
+    cursor: not-allowed;
 }
