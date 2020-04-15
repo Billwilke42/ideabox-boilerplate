@@ -142,8 +142,8 @@ function showStarredIdeas() {
   if (showStarredButton.innerText === 'Show Starred Ideas') {
     for (var i = 0; i < starredIdeasArray.length; i++) {
       createCard(starredIdeasArray[i]);
-      showStarredButton.innerText = 'Show All Ideas';
     }
+    showStarredButton.innerText = 'Show All Ideas';
   } else {
     showStarredButton.innerText = 'Show Starred Ideas';
     displayCards();
