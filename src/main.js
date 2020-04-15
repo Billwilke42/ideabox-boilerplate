@@ -27,7 +27,7 @@ searchInput.addEventListener('keyup', searchIdeas);
 
 function onLoadHandler() {
   checkEmptyInputs();
-  displayCards();
+  displayCards(ideasArray);
   reinstantiateCards();
 }
 
@@ -41,10 +41,10 @@ function openMenuHeader () {
    }
 }
 
-function displayCards() {
+function displayCards(array) {
   ideaCardsSection.innerHTML = '';
-  for (var i = 0; i < ideasArray.length; i++) {
-    createCard(ideasArray[i]);
+  for (var i = 0; i < array.length; i++) {
+    createCard(array[i]);
   }
 }
 
@@ -74,7 +74,7 @@ function storeIdea(event) {
   var currentIdea = new Idea({title: titleInput.value, body: bodyInput.value})
   ideasArray.push(currentIdea)
   currentIdea.saveToStorage();
-  displayCards();
+  createCard(currentIdea);
   clearInputs();
   checkEmptyInputs();
 }
@@ -108,7 +108,7 @@ function targetCard(event) {
   } else if (event.target.classList.contains('idea-star')){
     targetIdea.toggleStar(targetIdea);
   }
-  displayCards();
+  displayCards(ideasArray);
   targetIdea.saveToStorage();
 }
 
@@ -131,8 +131,6 @@ function reinstantiateCards() {
 }
 
 function showStarredIdeas() {
-  //showingAllCards = !showingAllCards;
-  ideaCardsSection.innerHTML = '';
   var starredIdeasArray = [];
   for (var i = 0; i < ideasArray.length; i++) {
     if(ideasArray[i].isStarred === true) {
@@ -140,13 +138,11 @@ function showStarredIdeas() {
     }
   }
   if (showStarredButton.innerText === 'Show Starred Ideas') {
-    for (var i = 0; i < starredIdeasArray.length; i++) {
-      createCard(starredIdeasArray[i]);
-    }
+    displayCards(starredIdeasArray)
     showStarredButton.innerText = 'Show All Ideas';
   } else {
     showStarredButton.innerText = 'Show Starred Ideas';
-    displayCards();
+    displayCards(ideasArray);
   }
 }
 
@@ -158,11 +154,5 @@ function searchIdeas() {
       searchedIdeasArray.push(ideasArray[i]);
     }
   }
-  if (searchInput.value) {
-    for (var i = 0; i < searchedIdeasArray.length; i++) {
-      createCard(searchedIdeasArray[i]);
-    }
-  } else {
-    displayCards();
-  }
+  searchInput.value ? displayCards(searchedIdeasArray) : displayCards(ideasArray);
 }
