@@ -60,6 +60,7 @@ hr {
 .title-input, .body-input, .search-container {
   border: 1px solid #1f1f3d;
   border-radius: 2px;
+  font-size: large;
 }
 
 .title-input {
@@ -90,6 +91,7 @@ hr {
   height: 100%;
   margin-left: 15%;
   width: 100%;
+  font-size: large;
 }
 
 .save-button {
@@ -216,6 +218,11 @@ img{
   display: grid;
   flex-grow: 3;
   grid-template-columns: repeat(3, 1fr);
+  overflow: scroll;
+}
+
+.idea-cards::-webkit-scrollbar {
+  display: none;
 }
 
 .darkness-disabled {
