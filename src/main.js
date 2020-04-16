@@ -1,29 +1,23 @@
-var mobileMenuIcon = document.querySelector('.mobile-menu');
-var menuHeader = document.querySelector('.menu-header');
-var menuSideBar = document.querySelector('.side-bar')
-var ideas = document.querySelector('.ideas');
-var saveButton = document.querySelector('.save-button');
-var titleInput = document.querySelector('.title-input');
 var bodyInput = document.querySelector('.body-input');
-var searchInput = document.querySelector('.search-input')
-var cardTitle = document.querySelector('.card-title');
-var cardBody = document.querySelector('.card-body');
 var ideaCardsSection = document.querySelector('.idea-cards');
-var upperRightForm = document.querySelector('.upper-right-form');
-var cardHeader = document.querySelector('.card-header');
-var showStarredButton = document.querySelector('.starred-ideas-button')
 var ideasArray = JSON.parse(localStorage.getItem('ideasArray')) || [];
+var menuSideBar = document.querySelector('.side-bar')
+var mobileMenuIcon = document.querySelector('.mobile-menu');
+var saveButton = document.querySelector('.save-button');
+var searchInput = document.querySelector('.search-input')
+var showStarredButton = document.querySelector('.starred-ideas-button');
+var titleInput = document.querySelector('.title-input');
+var upperRightForm = document.querySelector('.upper-right-form');
 
-//var searching = false;
 
 window.onload = onLoadHandler();
 
+ideaCardsSection.addEventListener('click', targetCard);
 mobileMenuIcon.addEventListener('click', openMenuHeader);
 saveButton.addEventListener('click', storeIdea);
-upperRightForm.addEventListener('keyup', checkEmptyInputs);
-ideaCardsSection.addEventListener('click', targetCard);
-showStarredButton.addEventListener('click', showStarredIdeas);
 searchInput.addEventListener('keyup', searchIdeas);
+showStarredButton.addEventListener('click', showStarredIdeas);
+upperRightForm.addEventListener('keyup', checkEmptyInputs);
 
 function onLoadHandler() {
   checkEmptyInputs();
@@ -31,20 +25,29 @@ function onLoadHandler() {
   reinstantiateCards();
 }
 
-function openMenuHeader () {
-  menuSideBar.classList.toggle('expanded');
-  ideas.classList.toggle('darkness');
-  if (menuSideBar.classList.contains('expanded')) {
-    mobileMenuIcon.src = 'assets/menu-close.svg';
-   } else {
-    mobileMenuIcon.src = 'assets/menu.svg';
-   }
+function checkEmptyInputs() {
+  if(titleInput.value && bodyInput.value) {
+    saveButton.disabled = false;
+    saveButton.classList.remove('darkness-disabled');
+  } else {
+    saveButton.disabled = true;
+    saveButton.classList.add('darkness-disabled');
+  }
 }
 
 function displayCards(array) {
   ideaCardsSection.innerHTML = '';
   for (var i = 0; i < array.length; i++) {
     createCard(array[i]);
+  }
+}
+
+function reinstantiateCards() {
+  var oldIdeasArray = ideasArray;
+  ideasArray = [];
+  for(var i = 0; i < oldIdeasArray.length; i++) {
+    var currentIdea = new Idea({title: oldIdeasArray[i].title, body: oldIdeasArray[i].body, id: oldIdeasArray[i].id, isStarred: oldIdeasArray[i].isStarred});
+    ideasArray.push(currentIdea);
   }
 }
 
@@ -63,34 +66,42 @@ function createCard(idea) {
   </section>`);
 }
 
-function clearInputs() {
-  bodyInput.value = '';
-  titleInput.value = '';
-  searchInput.value = '';
+function openMenuHeader () {
+  var ideas = document.querySelector('.ideas');
+  ideas.classList.toggle('darkness');
+  menuSideBar.classList.toggle('expanded');
+  if (menuSideBar.classList.contains('expanded')) {
+    mobileMenuIcon.src = 'assets/menu-close.svg';
+    toggleDisable();
+   } else {
+    mobileMenuIcon.src = 'assets/menu.svg';
+    toggleDisable();
+   }
+}
+
+function toggleDisable() {
+  titleInput.disabled = !titleInput.disabled;
+  bodyInput.disabled = !bodyInput.disabled ;
+  searchInput.disabled = !searchInput.disabled;
 }
 
 function storeIdea(event) {
   event.preventDefault();
-  var currentIdea = new Idea({title: titleInput.value, body: bodyInput.value})
-  ideasArray.push(currentIdea)
+  var currentIdea = new Idea({title: titleInput.value, body: bodyInput.value});
+  ideasArray.push(currentIdea);
   currentIdea.saveToStorage();
   createCard(currentIdea);
   clearInputs();
   checkEmptyInputs();
 }
 
-function checkEmptyInputs() {
-  if(titleInput.value && bodyInput.value) {
-    saveButton.disabled = false;
-    saveButton.classList.remove('darkness-disabled');
-  } else {
-    saveButton.disabled = true;
-    saveButton.classList.add('darkness-disabled');
-  }
+function clearInputs() {
+  bodyInput.value = '';
+  titleInput.value = '';
+  searchInput.value = '';
 }
 
 function removeCard(ideaId) {
-  // ideasArray = ideasArray.filter(idea => idea.id != parseInt(ideaId));
   var filteredIdeasArray = [];
   for(var i = 0; i < ideasArray.length; i++) {
     if(ideasArray[i].id != parseInt(ideaId)) {
@@ -113,20 +124,10 @@ function targetCard(event) {
 }
 
 function findIdea(ideaId) {
-   // return ideasArray.find(function (idea) {idea.id === parseInt(ideaId))
   for(var i = 0; i < ideasArray.length; i++) {
     if(ideasArray[i].id === parseInt(ideaId)) {
       return ideasArray[i];
     }
-  }
-}
-
-function reinstantiateCards() {
-  var oldIdeasArray = ideasArray;
-  ideasArray = [];
-  for(var i = 0; i < oldIdeasArray.length; i++) {
-    var currentIdea = new Idea({title: oldIdeasArray[i].title, body: oldIdeasArray[i].body, id: oldIdeasArray[i].id, isStarred: oldIdeasArray[i].isStarred})
-    ideasArray.push(currentIdea);
   }
 }
 
